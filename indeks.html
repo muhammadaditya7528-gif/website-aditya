@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Muhammad Aditya</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        :root {
+            --blue: #38a5ff;
+            --dark: #080b12;
+            --section: #101522;
+            --card: #172133;
+            --text: #c3ccda;
+        }
+
+        body {
+            background: var(--dark);
+            color: white;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* NAVIGASI */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(16, 21, 34, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 18px 7%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 28px;
+            border-bottom: 1px solid #26344d;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--blue);
+        }
+
+        /* BAGIAN UMUM */
+        section {
+            padding: 85px 8%;
+            scroll-margin-top: 65px;
+        }
+
+        .content {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .dark-section {
+            background: var(--section);
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 38px);
+            color: var(--blue);
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        /* PROFIL */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 55px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            color: var(--blue);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            color: white;
+        }
+
+        .profile {
+            width: 320px;
+            height: 400px;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 22px;
+            border: 3px solid var(--blue);
+            box-shadow: 0 0 30px #1677bd55;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background: var(--blue);
+            color: #06111d;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* GALERI */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .gallery figure {
+            background: var(--card);
+            padding: 13px;
+            border-radius: 17px;
+            border: 1px solid #263b59;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .gallery figure:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: 0 10px 25px #00000055;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            display: block;
+            border-radius: 11px;
+        }
+
+        .gallery figcaption {
+            padding: 14px 5px 5px;
+            text-align: center;
+            color: #d5e6f7;
+            font-weight: bold;
+        }
+
+        /* FOTO KARATE */
+        .gallery img.karate-photo {
+            height: 430px;
+            object-fit: contain;
+            object-position: center 20%;
+            background: #080b12;
+        }
+
+        /* FOTO WISUDA - TAMPIL UTUH */
+        .gallery img.graduation-photo {
+            height: 430px;
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+            background: #080b12;
+        }
+
+        /* KARTU INFORMASI */
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid #263b59;
+            padding: 23px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .info-card h3 {
+            color: var(--blue);
+            font-size: 19px;
+        }
+
+        .info-card p {
+            margin: 0;
+        }
+
+        .instagram {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--section);
+            border-top: 1px solid #26344d;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer p {
+            margin: 0;
+            color: #aab6c8;
+        }
+
+        /* TAMPILAN HP */
+        @media (max-width: 700px) {
+            nav {
+                gap: 15px;
+                padding: 15px 10px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                gap: 30px;
+            }
+
+            .profile {
+                width: 240px;
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .gallery img {
+                height: 240px;
+            }
+
+            .gallery img.karate-photo,
+            .gallery img.graduation-photo {
+                height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGASI -->
+<nav>
+    <a href="#profil">Profil</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#karate">Karate</a>
+    <a href="#alquran">Al-Qur'an</a>
+    <a href="#hobi">Hobi</a>
+    <a href="#akademik">Akademik</a>
+</nav>
+
+<!-- PROFIL UTAMA -->
+<section class="hero" id="profil">
+
+    <div class="hero-text">
+        <h1>Muhammad Aditya</h1>
+
+        <p class="subtitle">
+            Mahasiswa Teknik Informatika
+        </p>
+
+        <p>Universitas Pamulang</p>
+
+        <p>
+            Selamat datang di website portofolio pribadi saya.
+            Website ini berisi perjalanan pendidikan, pengalaman,
+            prestasi, hobi, dan minat saya.
+        </p>
+
+        <a href="#tentang" class="button">
+            Kenali Saya
+        </a>
+    </div>
+
+    <img class="profile"
+         src="./1000598628.jpg"
+         alt="Foto profil Muhammad Aditya">
+
+</section>
+
+<!-- TENTANG SAYA -->
+<section class="dark-section" id="tentang">
+
+    <div class="content">
+        <h2>Tentang Saya</h2>
+
+        <p>
+            Nama saya Muhammad Aditya. Saya merupakan mahasiswa
+            Program Studi Teknik Informatika di Universitas Pamulang.
+            Saya memiliki ketertarikan terhadap dunia teknologi,
+            pemrograman, dan pengembangan website.
+        </p>
+
+        <p>
+            Sejak kecil, saya menempuh pendidikan di lingkungan
+            sekolah Islam, mulai dari TK hingga SMA. Selama perjalanan
+            pendidikan tersebut, saya mempelajari Al-Qur'an
+            dan bahasa Arab.
+        </p>
+
+        <p>
+            Saya berusaha menjadi pribadi yang dapat dipercaya
+            dan bertanggung jawab terhadap setiap kewajiban
+            yang telah saya ambil.
+        </p>
+
+        <p>
+            Salah satu pencapaian yang saya banggakan adalah
+            berhasil menghafal 8 juz Al-Qur'an selama masa
+            pendidikan SMP dan SMA.
+        </p>
+    </div>
+
+</section>
+
+<!-- PRESTASI KARATE -->
+<section id="karate">
+
+    <div class="content">
+        <h2>Prestasi Karate</h2>
+
+        <p>
+            Saya memiliki pengalaman dan prestasi di bidang
+            olahraga bela diri karate. Salah satu pencapaian
+            yang membanggakan adalah ketika mengikuti turnamen
+            karate internasional UNJ Cup XI tahun 2022
+            di Jakarta Timur.
+        </p>
+
+        <p>
+            Dalam kompetisi tersebut, saya berhasil memperoleh
+            medali emas dan piagam penghargaan. Pengalaman ini
+            mengajarkan saya tentang kedisiplinan, kerja keras,
+            dan semangat untuk terus berkembang.
+        </p>
+
+        <div class="gallery">
+            <figure>
+                <img class="karate-photo"
+                     src="./WhatsApp Image 2026-11-15 at 18.31.36.jpeg"
+                     alt="Prestasi karate Muhammad Aditya">
+
+                <figcaption>
+                    Medali Emas - UNJ Cup XI 2022
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+</section>
+
+<!-- PENDIDIKAN ISLAM -->
+<section class="dark-section" id="alquran">
+
+    <div class="content">
+        <h2>Pendidikan Islam</h2>
+
+        <p>
+            Saya memiliki latar belakang pendidikan Islam.
+            Mulai dari TK hingga SMA, saya belajar di lingkungan
+            sekolah berbasis Islam.
+        </p>
+
+        <p>
+            Selama SMP dan SMA, saya berhasil menghafal
+            sebanyak 8 juz Al-Qur'an. Saya juga pernah
+            memenangkan lomba Al-Qur'an.
+        </p>
+
+        <p>
+            Pengalaman tersebut menjadi salah satu bagian
+            penting dalam perjalanan pendidikan dan
+            pembentukan karakter saya.
+        </p>
+
+        <div class="gallery">
+            <figure>
+                <img class="graduation-photo"
+                     src="./IMG_8881.JPG"
+                     alt="Dokumentasi wisuda Muhammad Aditya">
+
+                <figcaption>
+                    Kenangan Pendidikan
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+</section>
+
+<!-- HOBI -->
+<section id="hobi">
+
+    <div class="content">
+        <h2>Hobi dan Kegiatan</h2>
+
+        <!-- MINI SOCCER -->
+        <h3>⚽ Mini Soccer</h3>
+
+        <p>
+            Saya menyukai olahraga mini soccer. Bagi saya,
+            olahraga ini bukan hanya tentang mencetak gol,
+            tetapi juga tentang kerja sama tim, komunikasi,
+            dan kekompakan.
+        </p>
+
+        <p>
+            Saya juga pernah memenangkan kompetisi mini soccer.
+            Pengalaman tersebut menjadi motivasi bagi saya
+            untuk terus mengembangkan kemampuan di bidang olahraga.
+        </p>
+
+        <div class="gallery">
+            <figure>
+                <img src="./WhatsApp Image 2026-11-15 at 18.50.30 (1).jpeg"
+                     alt="Foto bermain mini soccer pertama">
+
+                <figcaption>Aktivitas Mini Soccer</figcaption>
+            </figure>
+
+            <figure>
+                <img src="./WhatsApp Image 2026-11-15 at 18.50.30.jpeg"
+                     alt="Foto bermain mini soccer kedua">
+
+                <figcaption>Bermain Bersama Tim</figcaption>
+            </figure>
+        </div>
+
+        <br><br>
+
+        <!-- FOTOGRAFI -->
+        <h3>📸 Fotografi Alam</h3>
+
+        <p>
+            Selain olahraga, saya juga memiliki ketertarikan
+            terhadap fotografi alam. Saya senang mengabadikan
+            berbagai pemandangan dan suasana alam.
+        </p>
+
+        <p>
+            Saya juga menyukai editing foto dan video
+            untuk menghasilkan karya visual yang menarik.
+        </p>
+
+        <div class="gallery">
+            <figure>
+                <img src="./snapgram.io_lft86okfy7hi.webp"
+                     alt="Fotografi pemandangan alam">
+
+                <figcaption>Pemandangan Alam</figcaption>
+            </figure>
+
+            <figure>
+                <img src="./snapgram.io_wx5wukyfv4si.webp"
+                     alt="Fotografi suasana senja">
+
+                <figcaption>Suasana Senja</figcaption>
+            </figure>
+        </div>
+    </div>
+
+</section>
+
+<!-- AKADEMIK -->
+<section class="dark-section" id="akademik">
+
+    <div class="content">
+        <h2>Akademik dan Minat</h2>
+
+        <p>
+            Saat ini saya sedang mengembangkan kemampuan
+            di bidang teknologi informasi, khususnya
+            pemrograman dan pengembangan website.
+        </p>
+
+        <div class="info">
+
+            <div class="info-card">
+                <h3>Nama</h3>
+                <p>Muhammad Aditya</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Universitas</h3>
+                <p>Universitas Pamulang</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Program Studi</h3>
+                <p>Teknik Informatika</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Minat</h3>
+                <p>Pemrograman dan Pengembangan Website</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Hobi</h3>
+                <p>Mini Soccer, Fotografi Alam, dan Editing</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Cita-cita</h3>
+                <p>Menjadi Masinis</p>
+            </div>
+
+        </div>
+
+        <br>
+
+        <p>
+            Instagram:
+            <a class="instagram"
+               href="https://www.instagram.com/moeders_held"
+               target="_blank"
+               rel="noopener noreferrer">
+                @moeders_held
+            </a>
+        </p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 Muhammad Aditya | Personal Portfolio
+    </p>
+
+    <p>
+        Terus belajar, berkembang, dan berkarya.
+    </p>
+</footer>
+
+</body>
+</html>
